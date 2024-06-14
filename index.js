@@ -9,8 +9,8 @@ const serviceRoutes = require('./routes/serviceRoutes');
 const requestRoutes = require('./routes/requestRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
 const logRoutes = require('./routes/logRoutes');
-const servicecinRoutes = require('./service/servicecin/routes/servicecinRoutes');
-const servicetaxRoutes = require('./service/servicetax/routes/servicetaxRoutes');
+const servicecinRoutes = require('./services/servicecin/routes/servicecinRoutes');
+const servicetaxRoutes = require('./services/servicetax/routes/servicetaxRoutes');
 
 const app = express();
 const port = 3000;
@@ -31,10 +31,10 @@ app.use('/api/cin', servicecinRoutes);
 app.use('/api/tax', servicetaxRoutes);
 
 const transporter = nodemailer.createTransport({
-  service: process.env.EMAIL_SERVICE,
+  service:'mail',
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
+    user: "murielarisoaran@gmail.com",
+    pass: "aldmlrghvzwrtxzu"
   }
 });
 
