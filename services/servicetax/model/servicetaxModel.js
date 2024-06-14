@@ -1,9 +1,10 @@
 const supabase = require('../../../models/supabaseClient');
 
-const createServiceTax = async (fullName, nif, email, amount, paymentMethod, taxType, fiscalPeriod, taxReference, documentUrls) => {
+const createServiceTax = async (user_id,fullName, nif, email, amount, paymentMethod, taxType, fiscalPeriod, taxReference, documentUrls) => {
     const { data, error } = await supabase
         .from('servicetax')
         .insert([{
+            user_id,
             full_name: fullName,
             nif,
             email,
