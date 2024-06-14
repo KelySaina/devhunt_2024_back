@@ -49,7 +49,7 @@ app.post('/api/verify', (req, res) => {
     from: "tiavinacyri@gmail.com",
     to: email,
     subject: 'Email verification',
-    text: `Your verification code is: 545154`
+    text: `Your verification code is: ${verificationCode}`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
