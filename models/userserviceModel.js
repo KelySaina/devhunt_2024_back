@@ -3,10 +3,12 @@ const supabase = require('../models/supabaseClient');
 const createUserService = async (userId, serviceId) => {
     const { data, error } = await supabase
         .from('user_services')
-        .insert({
-            user_id: userId,
-            service_id: serviceId
-        });
+        .insert(
+            [{
+                user_id: userId,
+                service_id: serviceId
+            }]
+        ).select('*');
 
     if (error) {
         throw new Error('Failed to create user service');
