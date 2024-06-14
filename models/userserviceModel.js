@@ -11,7 +11,7 @@ const createUserService = async (userId, serviceId) => {
         ).select('*');
 
     if (error) {
-        throw new Error('Failed to create user service');
+        throw new Error(error);
     }
 
     return data;
