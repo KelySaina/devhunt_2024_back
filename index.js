@@ -11,6 +11,8 @@ const paymentRoutes = require('./routes/paymentRoutes');
 const logRoutes = require('./routes/logRoutes');
 const servicecinRoutes = require('./services/servicecin/routes/servicecinRoutes');
 const servicetaxRoutes = require('./services/servicetax/routes/servicetaxRoutes');
+const servicelibraryRoutes = require('./services/servicelibrary/routes/servicelibraryRoutes');
+
 
 const app = express();
 const port = 3000;
@@ -29,6 +31,8 @@ app.use('/api/payments', paymentRoutes);
 app.use('/api/logs', logRoutes);
 app.use('/api/cin', servicecinRoutes);
 app.use('/api/tax', servicetaxRoutes);
+app.use('/api/library', servicelibraryRoutes);
+
 
 const transporter = nodemailer.createTransport({
   service: 'tiavinacyri@gmail.com',

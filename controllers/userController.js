@@ -32,7 +32,7 @@ const login = async (req, res) => {
 };
 
 
-const getAllUsers = async (req, res) => {
+const getAll = async (req, res) => {
     try {
         const users = await getAllUsers();
         res.json({ users });
@@ -78,4 +78,4 @@ const remove = async (req, res) => {
     }
 };
 
-module.exports = { register, login, getAllUsers, getById, update , remove };
+module.exports = { register, login, getAll, getById, update , remove };
