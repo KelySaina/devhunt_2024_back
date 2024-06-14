@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const { createUser, getUserByEmail } = require('../models/userModel');
+const { createUser, getUserByEmail, getAllUsers, getUserById } = require('../models/userModel');
 
 const register = async (req, res) => {
     const { username, password, email, firstName, lastName, dateOfBirth } = req.body;
@@ -32,7 +32,7 @@ const login = async (req, res) => {
 };
 
 
-const getAll = async (req, res) => {
+const getAllUsers = async (req, res) => {
     try {
         const users = await getAllUsers();
         res.json({ users });
@@ -78,4 +78,4 @@ const remove = async (req, res) => {
     }
 };
 
-module.exports = { register, login, getAll, getById, update , remove };
+module.exports = { register, login, getAllUsers, getById, update , remove };
