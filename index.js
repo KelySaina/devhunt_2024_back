@@ -31,10 +31,10 @@ app.use('/api/cin', servicecinRoutes);
 app.use('/api/tax', servicetaxRoutes);
 
 const transporter = nodemailer.createTransport({
-  service:'mail',
+  service:"murielarisoaran@gmail.com",
   auth: {
     user: "murielarisoaran@gmail.com",
-    pass: "aldmlrghvzwrtxzu"
+    pass: "aldm lrgh vzwr txzu"
   }
 });
 
