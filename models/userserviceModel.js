@@ -5,8 +5,8 @@ const createUserService = async (userId, serviceId) => {
         .from('user_services')
         .insert(
             [{
-                user_id: userId,
-                service_id: serviceId
+                userId,
+                serviceId
             }]
         ).select('*');
 
