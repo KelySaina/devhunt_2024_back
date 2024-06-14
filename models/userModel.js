@@ -1,11 +1,11 @@
 const supabase = require('../models/supabaseClient');
 const bcrypt = require('bcryptjs');
 
-const createUser = async (username, password, email, firstName, lastName, dateOfBirth, nationality) => {
+const createUser = async (username, password, email, firstName, lastName, dateOfBirth) => {
     const passwordHash = await bcrypt.hash(password, 10);
     const { data, error } = await supabase
         .from('users')
-        .insert([{ username, password_hash: passwordHash, email, first_name: firstName, last_name: lastName, date_of_birth: dateOfBirth, nationality}]);
+        .insert([{ username, password_hash: passwordHash, email, first_name: firstName, last_name: lastName, date_of_birth: dateOfBirth}]);
     
     if (error) throw error;
     return data;
