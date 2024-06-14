@@ -14,7 +14,7 @@ const createUserService = async (userId, serviceId) => {
         throw new Error('Failed to create user service');
     }
 
-    return data[0];
+    return data;
 };
 
 const deleteUserService = async (userServiceId) => {
