@@ -12,6 +12,7 @@ const logRoutes = require('./routes/logRoutes');
 const servicecinRoutes = require('./services/servicecin/routes/servicecinRoutes');
 const servicetaxRoutes = require('./services/servicetax/routes/servicetaxRoutes');
 const servicelibraryRoutes = require('./services/servicelibrary/routes/servicelibraryRoutes');
+const userServicesRoutes = require('./routes/userserviceRoutes');
 
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/services', serviceRoutes);
+app.use('/api/user-services', userServicesRoutes);
 app.use('/api/requests', requestRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/logs', logRoutes);
