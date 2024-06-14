@@ -32,6 +32,28 @@ const login = async (req, res) => {
 };
 
 
+const getAll = async (req, res) => {
+    try {
+        const users = await getAllUsers();
+        res.json({ users });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
+
+const getById = async (req, res) => {
+    const userId = req.params.userId;
+
+    try {
+        const user = await getUserById(userId);
+        res.json({ user });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
+
 const update = async (req, res) => {
     const userId = req.params.userId;
     const updates = req.body;
@@ -56,4 +78,4 @@ const remove = async (req, res) => {
     }
 };
 
-module.exports = { register, login, update , remove };
+module.exports = { register, login, getAll, getById, update , remove };

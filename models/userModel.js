@@ -22,6 +22,15 @@ const getUserByEmail = async (email) => {
     return data;
 };
 
+const getAllUsers = async () => {
+    const { data, error } = await supabase
+        .from('users')
+        .select('*');
+
+    if (error) throw error;
+    return data;
+};
+
 const getUserById = async (userId) => {
     const { data, error } = await supabase
         .from('users')
@@ -53,4 +62,4 @@ const deleteUser = async (userId) => {
     return data;
 };
 
-module.exports = { createUser, getUserByEmail, getUserById, updateUser, deleteUser };
+module.exports = { createUser, getUserByEmail,getAllUsers, getUserById, updateUser, deleteUser };
