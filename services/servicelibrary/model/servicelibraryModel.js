@@ -1,10 +1,11 @@
 const supabase = require('../../../models/supabaseClient');
 
-const createServiceLibrary = async (title, author, isbn, genre, available) => {
+const createServiceLibrary = async (user_id, title, author, isbn, genre, available) => {
     const { data, error } = await supabase
         .from('servicelibrary')
         .insert([
             {
+                user_id,
                 title,
                 author,
                 isbn,
@@ -12,7 +13,7 @@ const createServiceLibrary = async (title, author, isbn, genre, available) => {
                 available
             }
         ]);
-    
+
     if (error) throw error;
     return data;
 };
