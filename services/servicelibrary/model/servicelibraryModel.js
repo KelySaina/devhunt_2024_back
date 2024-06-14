@@ -11,7 +11,7 @@ const createServiceLibrary = async (user_id, title, author, isbn, genre) => {
                 isbn,
                 genre,
             }
-        ]);
+        ]).select('*');
 
     if (error) throw error;
     return data;
