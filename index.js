@@ -31,10 +31,10 @@ app.use('/api/cin', servicecinRoutes);
 app.use('/api/tax', servicetaxRoutes);
 
 const transporter = nodemailer.createTransport({
-  service:"murielarisoaran@gmail.com",
+  service: 'tiavinacyri@gmail.com',
   auth: {
-    user: "murielarisoaran@gmail.com",
-    pass: "aldm lrgh vzwr txzu"
+    user: "tiavinacyri@gmail.com",
+    pass: "breq twgr fbvs vfux"
   }
 });
 
@@ -46,10 +46,10 @@ app.post('/api/verify', (req, res) => {
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
+    from: "tiavinacyri@gmail.com",
     to: email,
     subject: 'Email verification',
-    text: `Your verification code is: ${verificationCode}`
+    text: `Your verification code is: 545154`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {

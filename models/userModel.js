@@ -11,11 +11,11 @@ const createUser = async (username, password, email, firstName, lastName, dateOf
     return data;
 };
 
-const getUserByUsername = async (username) => {
+const getUserByEmail = async (email) => {
     const { data, error } = await supabase
         .from('users')
         .select('*')
-        .eq('username', username)
+        .eq('email', email)
         .single();
     
     if (error) throw error;
@@ -53,4 +53,4 @@ const deleteUser = async (userId) => {
     return data;
 };
 
-module.exports = { createUser, getUserByUsername, getUserById, updateUser, deleteUser };
+module.exports = { createUser, getUserByEmail, getUserById, updateUser, deleteUser };
