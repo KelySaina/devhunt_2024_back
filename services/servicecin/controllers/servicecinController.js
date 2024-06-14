@@ -3,11 +3,11 @@ const { createServiceCin } = require('../models/servicecinModel');
 
 const addServiceCin = async (req, res) => {
     const { user_id, firstName, lastName, dateOfBirth, placeOfBirth, particularSign, cinNumber, housing, borough, occupation, fatherName, motherName, madeIn } = req.body;
-    const { image } = req.files;
+    // const { image } = req.files;
 
     let imageUrl = null;
     try {
-        if (image) {
+        /* if (image) {
             const imageName = `${Date.now()}_${image.name}`;
             const { data: fileData, error: uploadError } = await supabase.storage
                 .from('stockage')
@@ -21,7 +21,7 @@ const addServiceCin = async (req, res) => {
             }
 
             imageUrl = `${process.env.SUPABASE_URL}/storage/v1/object/public/stockage/${fileData.path}`;
-        }
+        } */
         const serviceCin = await createServiceCin(user_id, firstName, lastName, dateOfBirth, placeOfBirth, particularSign, cinNumber, housing, borough, occupation, fatherName, motherName, madeIn, imageUrl);
         res.status(201).json({ message: 'Service CIN created successfully', serviceCin });
     } catch (error) {
