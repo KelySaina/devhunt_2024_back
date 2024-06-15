@@ -5,7 +5,7 @@ const createUser = async (username, password, email, firstName, lastName, dateOf
     const passwordHash = await bcrypt.hash(password, 10);
     const { data, error } = await supabase
         .from('users')
-        .insert([{ username, password_hash: passwordHash, email, first_name: firstName, last_name: lastName, date_of_birth: dateOfBirth}]);
+        .insert([{ username, password_hash: passwordHash, email, first_name: firstName, last_name: lastName, date_of_birth: dateOfBirth}]).select('*');
     
     if (error) throw error;
     return data;

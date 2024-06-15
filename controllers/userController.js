@@ -7,7 +7,8 @@ const register = async (req, res) => {
 
     try {
         const user = await createUser(username, password, email, firstName, lastName, dateOfBirth);
-        res.status(201).json({ message: 'User registered successfully', user });
+        const token = jwt.sign({ userId: user.user_id }, 'devhunt', { expiresIn: '3h' });
+        res.json({ token: token, user: user });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
@@ -25,7 +26,7 @@ const login = async (req, res) => {
         }
 
         const token = jwt.sign({ userId: user.user_id }, 'devhunt', { expiresIn: '3h' });
-        res.json({ token : token, user: user});
+        res.json({ token: token, user: user });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
@@ -78,4 +79,4 @@ const remove = async (req, res) => {
     }
 };
 
-module.exports = { register, login, getAll, getById, update , remove };
+module.exports = { register, login, getAll, getById, update, remove };
